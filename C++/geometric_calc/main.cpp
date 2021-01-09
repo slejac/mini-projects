@@ -3,6 +3,7 @@
 using std::cout, std::endl;
 
 int main() {
+  system("cls");
   Square s(6);
   cout << "Square with length " << s.length() << "'s area is " << s.area();
   cout << endl;
@@ -119,5 +120,5 @@ int main() {
     cout << each << ", ";
   }
   cout << "surface area is " << etp.surface_area() << ", and volume is ";
-  cout << etp.volume() << "\n" << endl;
+  cout << etp.volume() << endl;
 }

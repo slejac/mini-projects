@@ -1,18 +1,20 @@
 #include <iostream>
 using std::cout, std::endl, std::cin;
 
+// MessagePrinter function, printing your goal score
 void MessagePrinter(const double &needed, const double &target) {
-  cout << "You need to earn at least " << needed << " on your final";
-  cout << " if you would like to score at least " << target << endl;
+  cout << "You need to earn at least " << needed << "% on your final";
+  cout << " if you would like to score at least " << target << "%" << endl;
 }
 
 int main() {
-  int repeat = 0;
+  char repeat = 'y'; // Setting repeat variable
   do {
+    system("cls");
     cout << "What is your current grade?" << endl;
     double current_grade;
     cin >> current_grade;
-    while (cin.fail()) {
+    while (cin.fail()) { // Input validity checking
       cin.clear();
       cin.ignore();
       cout << "Invalid Input! Please enter your current grade." << endl;
@@ -37,6 +39,7 @@ int main() {
       cout << "final." << endl;
       cin >> final_weight;
     }
+    // Calculation of target score using current points and target grade
     double current_points = ((100 - final_weight) * current_grade)/100;
     double needed_grade = ((target_grade - current_points)/final_weight) * 100;
     if (needed_grade > 100) {
@@ -48,7 +51,8 @@ int main() {
     }
     MessagePrinter(needed_grade, target_grade);
     cout << "Would you like to repeat the calculations? ";
-    cout << "Enter a number of than zero to continue." << endl;
+    cout << "Enter (y or n)." << endl;
     cin >> repeat;
-  } while (repeat != 0);
+    repeat = tolower(repeat);
+  } while (repeat == 'y');
 }
