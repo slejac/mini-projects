@@ -50,7 +50,6 @@ class Triangle {
 class RightTriangle {
   public:
     RightTriangle(double a, double b): a_(a), b_(b) {};
-    RightTriangle(double a, double b, double h): a_(a), b_(b), hypotenuse_(h) {};
     double a() const { return a_; }
     double b() const { return b_; }
     double hypotenuse();
@@ -58,7 +57,6 @@ class RightTriangle {
   private:
     double a_;
     double b_;
-    double hypotenuse_;
 };
 
 class Cube {

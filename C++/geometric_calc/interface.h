@@ -1,0 +1,19 @@
+#pragma once
+
+double ErrorHandling();
+void SquareInterface();
+void RectangleInterface();
+void CircleInterface();
+void TriangleInterface();
+void RightTriangleInterface();
+void CubeInterface();
+void RectangularPrismInterface();
+void TriangularPrismInterface();
+void SphereInterface();
+void CylinderInterface();
+void ConeInterface();
+void SquarePyramidInterface();
+void TriangularPyramidInterface();
+void EquilateralTriangularPyramidInterface();
+void RepeatInterface();
+void Interface();

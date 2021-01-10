@@ -1,9 +1,9 @@
-#include "geometric_calc.h"
-
 #include <cmath>
 using std::pow, std::atan;
 #include <vector>
 using std::vector;
+
+#include "geometric_calc.h"
 
 double TriangleArea(double a, double b, double c) {
   double s = a + b + c;
