@@ -24,11 +24,10 @@ void SquareInterface() {
   while(cin.fail()) {
     length = ErrorHandling();
   }
+  system("cls");
   Square s(length);
-  cout << "\nSquare with length " << length << "'s area is " << s.area();
-  cout << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "Square:\nLength: " << s.length() << "\nPerimeter: ";
+  cout << s.perimeter() << "\nArea: " << s.area() << endl;
 }
 
 void RectangleInterface() {
@@ -45,11 +44,10 @@ void RectangleInterface() {
   while(cin.fail()) {
     width = ErrorHandling();
   }
+  system("cls");
   Rectangle r(length, width);
-  cout << "\nRectangle with length " << length << " and width ";
-  cout << width << "'s area is " << r.area() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "Rectangle:\nLength: " << r.length() << "\nWidth: " << r.width();
+  cout << "\nPerimeter: " << r.perimeter() << "\nArea: " << r.area() << endl;
 }
 
 void CircleInterface() {
@@ -60,12 +58,11 @@ void CircleInterface() {
   while(cin.fail()) {
     radius = ErrorHandling();
   }
+  system("cls");
   Circle c(radius);
-  cout << "\nCircle with radius " << radius << " and diameter ";
-  cout << c.diameter() << "'s circumference is " << c.circumference();
-  cout << " and area is " << c.area() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "Circle:\nRadius: " << c.radius() << "\nDiameter: " << c.diameter();
+  cout << "\nCircumference: " << c.circumference() << "\nArea: " << c.area();
+  cout << endl;
 }
 
 void TriangleInterface() {
@@ -88,12 +85,11 @@ void TriangleInterface() {
   while(cin.fail()) {
     c = ErrorHandling();
   }
+  system("cls");
   Triangle t(a, b, c);
-  cout << "\nTriangle with side a " << a << ", side b ";
-  cout << b << " and side c " << c <<"'s area is ";
-  cout << t.area() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "Triangle:\nSide a: " << t.a() << "\nSide b: " << t.b();
+  cout << "\nSide c: " << t.c() << "\nPerimeter: " << t.perimeter();
+  cout << "\nArea: " << t.area() << endl;
 }
 
 void RightTriangleInterface() {
@@ -110,12 +106,11 @@ void RightTriangleInterface() {
   while(cin.fail()) {
     height = ErrorHandling();
   }
-  RightTriangle rt(base, height);
-  cout << "\nRight Triangle with base " << base << ", height ";
-  cout << height << ", and hypotenuse " << rt.hypotenuse();
-  cout << "'s area is " << rt.area() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  system("cls");
+  RightTriangle t(base, height);
+  cout << "Right Triangle:\nBase: " << t.base() << "\nHeight: " << t.height();
+  cout << "\nHypotenuse: " << t.hypotenuse() << "\nPerimeter: ";
+  cout << t.perimeter() << "\nArea: " << t.area() << endl;
 }
 
 void CubeInterface() {
@@ -126,18 +121,21 @@ void CubeInterface() {
   while(cin.fail()) {
     length = ErrorHandling();
   }
+  system("cls");
   Cube c(length);
-  cout << "\nCube with length " << length << ", width ";
-  cout << c.width() << ", and height " << c.height();
-  cout << "'s side areas are ";
+  cout << "Cube:\nLength: " << c.length() << "\nWidth: " << c.width();
+  cout << "\nHeight: " << c.height() << "\nSide Areas: ";
   vector<double> sides = c.side_areas();
-  for (const double &each: sides) {
-    cout << each << ", ";
+  for (int i = 0; i < static_cast<int>(sides.size()); ++i) {
+    if (i > 0) {
+      cout << ", " << sides[i];
+    }
+    else {
+      cout << sides[i];
+    }
   }
-  cout << "surface area " << c.surface_area() << ", and volume ";
-  cout << c.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "\nSurface area: " << c.surface_area() << "\nVolume: " << c.volume();
+  cout << endl;
 }
 
 void RectangularPrismInterface() {
@@ -163,17 +161,21 @@ void RectangularPrismInterface() {
   while(cin.fail()) {
     height = ErrorHandling();
   }
+  system("cls");
   RectangularPrism r(length, width, height);
-  cout << "\nRectangular Prism with length " << length << ", width ";
-  cout << width << ", and height " << height << "'s side areas are ";
+  cout << "Rectangular Prism:\nLength: " << r.length() << "\nWidth: ";
+  cout << r.width() << "\nHeight: " << r.height() << "\nSide Areas: ";
   vector<double> sides = r.side_areas();
-  for (const double &each: sides) {
-    cout << each << ", ";
+  for (int i = 0; i < static_cast<int>(sides.size()); ++i) {
+    if (i > 0) {
+      cout << ", " << sides[i];
+    }
+    else {
+      cout << sides[i];
+    }
   }
-  cout << "surface area " << r.surface_area() << ", and volume ";
-  cout << r.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "\nSurface Area: " << r.surface_area() << "\nVolume: " << r.volume();
+  cout << endl;
 }
 
 void TriangularPrismInterface() {
@@ -205,18 +207,22 @@ void TriangularPrismInterface() {
   while(cin.fail()) {
     depth = ErrorHandling();
   }
+  system("cls");
   TriangularPrism t(a, b, c, depth);
-  cout << "\nTriangular Prism with side a " << a << ", side b ";
-  cout << b << ", side c " << c << ", and depth " << depth;
-  cout << "'s side areas are ";
+  cout << "Triangular Prism:\nBase Side a: " << t.a() << "\nBase Side b: ";
+  cout << t.b() << "\nBase Side c: " << t.c() << "\nDepth: " << depth;
+  cout << "\nSide Areas: ";
   vector<double> sides = t.side_areas();
-  for (const double &each: sides) {
-    cout << each << ", ";
+  for (int i = 0; i < static_cast<int>(sides.size()); ++i) {
+    if (i > 0) {
+      cout << ", " << sides[i];
+    }
+    else {
+      cout << sides[i];
+    }
   }
-  cout << "surface area " << t.surface_area() << ", and volume ";
-  cout << t.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "\nSurface Area: " << t.surface_area() << "\nVolume: " << t.volume();
+  cout << endl;
 }
 
 void SphereInterface() {
@@ -227,12 +233,11 @@ void SphereInterface() {
   while(cin.fail()) {
     radius = ErrorHandling();
   }
-  Sphere sp(radius);
-  cout << "\nSphere with radius " << sp.radius() << " and diameter ";
-  cout << sp.diameter() << "'s surface area is " << sp.surface_area();
-  cout << " and volume is " << sp.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  system("cls");
+  Sphere s(radius);
+  cout << "Sphere:\nRadius: " << s.radius() << "\nDiameter: ";
+  cout << s.diameter() << "\nSurface Area: " << s.surface_area();
+  cout << "\nVolume: " << s.volume() << endl;
 }
 
 void CylinderInterface() {
@@ -249,18 +254,22 @@ void CylinderInterface() {
   while(cin.fail()) {
     height = ErrorHandling();
   }
+  system("cls");
   Cylinder c(radius, height);
-  cout << "\nCylinder with radius " << radius << ", height ";
-  cout << height << ", and diameter " << c.diameter();
-  cout << "'s circumference is " << c.circumference() << ", side areas are ";
+  cout << "Cylinder:\nBase Radius: " << c.radius() << "\nHeight: ";
+  cout << c.height() << "\nBase Diameter: " << c.diameter();
+  cout << "\nCircumference: " << c.circumference() << "\nSide Areas: ";
   vector<double> sides = c.side_areas();
-  for (const double &each: sides) {
-    cout << each << ", ";
+  for (int i = 0; i < static_cast<int>(sides.size()); ++i) {
+    if (i > 0) {
+      cout << ", " << sides[i];
+    }
+    else {
+      cout << sides[i];
+    }
   }
-  cout << "surface area is " << c.surface_area() << ", and volume is ";
-  cout << c.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "\nSurface Area: " << c.surface_area() << "\nVolume: " << c.volume();
+  cout << endl;
 }
 
 void ConeInterface() {
@@ -277,20 +286,23 @@ void ConeInterface() {
   while(cin.fail()) {
     height = ErrorHandling();
   }
+  system("cls");
   Cone c(radius, height);
-  cout << "\nCone with radius " << radius << ", height ";
-  cout << height << ", and diameter " << c.diameter();
-  cout << "'s base circumference is " << c.circumference();
-  cout << ", angle with base is " << c.base_angle();
-  cout << " degrees, side areas are ";
+  cout << "Cone:\nBase Radius: " << c.radius() << "\nHeight: " << c.height();
+  cout << "\nBase Diameter: " << c.diameter() << "\nBase Circumference: ";
+  cout << c.circumference() << "\nAngle with Base: " << c.base_angle();
+  cout << " degrees\nSide Areas: ";
   vector<double> sides = c.side_areas();
-  for (const double &each: sides) {
-    cout << each << ", ";
+  for (int i = 0; i < static_cast<int>(sides.size()); ++i) {
+    if (i > 0) {
+      cout << ", " << sides[i];
+    }
+    else {
+      cout << sides[i];
+    }
   }
-  cout << "surface area is " << c.surface_area() << ", and volume is ";
-  cout << c.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "\nSurface Area: " << c.surface_area() << "\nVolume: " << c.volume();
+  cout << endl;
 }
 
 void SquarePyramidInterface() {
@@ -307,23 +319,27 @@ void SquarePyramidInterface() {
   while(cin.fail()) {
     height = ErrorHandling();
   }
+  system("cls");
   SquarePyramid p(length, height);
-  cout << "\nSquare Pyramid with length " << length << ", height ";
-  cout << height << "'s angle with base is " << p.base_angle();
-  cout << " degrees, side areas are ";
+  cout << "Square Pyramid:\nBase Side Length: " << p.length() << "\nHeight: ";
+  cout << p.height() << "\nAngle with Base: " << p.base_angle() << " degrees";
+  cout << "\nSide Areas: ";
   vector<double> sides = p.side_areas();
-  for (const double &each: sides) {
-    cout << each << ", ";
+  for (int i = 0; i < static_cast<int>(sides.size()); ++i) {
+    if (i > 0) {
+      cout << ", " << sides[i];
+    }
+    else {
+      cout << sides[i];
+    }
   }
-  cout << "surface area is " << p.surface_area() << ", and volume is ";
-  cout << p.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
+  cout << "\nSurface Area: " << p.surface_area() << "\nVolume: " << p.volume();
+  cout << endl;
 }
 
 void TriangularPyramidInterface() {
   system("cls");
-  cout << "What length would you like to make your pyramid bases's side a?: ";
+  cout << "What length would you like to make your pyramid base's side a?: ";
   double a;
   cin >> a;
   while(cin.fail()) {
@@ -347,23 +363,27 @@ void TriangularPyramidInterface() {
   while(cin.fail()) {
     height = ErrorHandling();
   }
+  system("cls");
   TriangularPyramid p(a, b, c, height);
-  cout << "\nTriangular Pyramid with side a " << a << ", side b ";
-  cout << b << ", side c " << c << ", and height " << height;
-  cout << "'s side areas are ";
+  cout << "Triangular Pyramid:\nBase Side a: " << p.a() << "\nBase Side b: ";
+  cout << p.b() << "\nBase Side c: " << p.c() << "\nHeight: " << p.height();
+  cout << "\nSide Areas: ";
   vector<double> sides = p.side_areas();
-  for (const double &each: sides) {
-    cout << each << ", ";
+  for (int i = 0; i < static_cast<int>(sides.size()); ++i) {
+    if (i > 0) {
+      cout << ", " << sides[i];
+    }
+    else {
+      cout << sides[i];
+    }
   }
-  cout << "surface area is " << p.surface_area() << ", and volume is ";
+  cout << "\nSurface Area: " << p.surface_area() << "\nVolume: ";
   cout << p.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
 }
 
 void EquilateralTriangularPyramidInterface() {
   system("cls");
-  cout << "What length would you like to make your pyramid bases's side?: ";
+  cout << "What length would you like to make your pyramid base's side?: ";
   double length;
   cin >> length;
   while(cin.fail()) {
@@ -375,32 +395,28 @@ void EquilateralTriangularPyramidInterface() {
   while(cin.fail()) {
     height = ErrorHandling();
   }
+  system("cls");
   EquilateralTriangularPyramid p(length, height);
-  cout << "\nEquilateral Triangular Pyramid with length " << length;
-  cout << " and height " << height << "'s angle with it's base is ";
-  cout << p.base_angle() << " degrees, side areas are ";
+  cout << "Equilateral Triangular Pyramid:\nBase Side Length: " << p.length();
+  cout << "\nHeight: " << p.height() << "\nAngle with Base: ";
+  cout << p.base_angle() << " degrees\nSide Areas: ";
   vector<double> sides = p.side_areas();
-  for (const double &each: sides) {
-    cout << each << ", ";
+  for (int i = 0; i < static_cast<int>(sides.size()); ++i) {
+    if (i > 0) {
+      cout << ", " << sides[i];
+    }
+    else {
+      cout << sides[i];
+    }
   }
-  cout << "surface area is " << p.surface_area() << ", and volume is ";
+  cout << "\nSurface Area: " << p.surface_area() << "\nVolume: ";
   cout << p.volume() << endl;
-  cout << "\nPress any key to continue: ";
-  getch();
 }
 
 void RepeatInterface() {
-  system("cls");
-  cout << "Would you like to repeat computations? Enter y if so: ";
-  char repeat;
-  cin >> repeat;
-  if(cin.fail()) {
-    cin.clear();
-    cin.ignore();
-  }
-  else if(repeat == 'y' || repeat == 'Y') {
-    Interface();
-  }
+  cout << "\nPress any key to continue: ";
+  getch();
+  Interface();
 }
 
 // Interface Function, exceeds standard function length due to

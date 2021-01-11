@@ -7,6 +7,7 @@ class Square {
   public:
     Square(double l): length_(l) {};
     double length() const { return length_; }
+    double perimeter();
     double area();
   private:
     double length_;
@@ -17,6 +18,7 @@ class Rectangle {
     Rectangle(double l, double w): length_(l), width_(w) {};
     double length() const { return length_; }
     double width() const { return width_; }
+    double perimeter();
     double area();
   private:
     double length_;
@@ -40,6 +42,7 @@ class Triangle {
     double a() const { return a_; }
     double b() const { return b_; }
     double c() const { return c_; }
+    double perimeter();
     double area();
   private:
     double a_;
@@ -49,14 +52,15 @@ class Triangle {
 
 class RightTriangle {
   public:
-    RightTriangle(double a, double b): a_(a), b_(b) {};
-    double a() const { return a_; }
-    double b() const { return b_; }
+    RightTriangle(double b, double h): base_(b), height_(h) {};
+    double base() const { return base_; }
+    double height() const { return height_; }
     double hypotenuse();
+    double perimeter();
     double area();
   private:
-    double a_;
-    double b_;
+    double base_;
+    double height_;
 };
 
 class Cube {

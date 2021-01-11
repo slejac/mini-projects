@@ -34,9 +34,19 @@ double AngleCalc(double a, double b) {
   return degrees;
 }
 
+double Square::perimeter() {
+  double p = 4 * length_;
+  return p;
+}
+
 double Square::area() {
   double a = pow(length_, 2);
   return a;
+}
+
+double Rectangle::perimeter() {
+  double p = (2 * length_) + (2 * width_);
+  return p;
 }
 
 double Rectangle::area() {
@@ -57,18 +67,31 @@ double Circle::area() {
   return CircleArea(radius_);
 }
 
+double Triangle::perimeter() {
+  double p = a_ + b_ + c_;
+  return p;
+}
+
 double Triangle::area() {
   return TriangleArea(a_, b_, c_);
 }
 
 double RightTriangle::hypotenuse() {
-  double h_squared = pow(a_ , 2) + pow(b_ , 2);
+  double h_squared = pow(base_ , 2) + pow(height_ , 2);
   double h = pow(h_squared, .5);
   return h;
 }
 
+double RightTriangle::perimeter() {
+  double p = base_ + height_;
+  double temp = pow(base_ , 2) + pow(height_ , 2);
+  double h = pow(temp, .5);
+  p += h;
+  return p;
+}
+
 double RightTriangle::area() {
-  double a = (a_ * b_)/2;
+  double a = (base_ * height_)/2;
   return a;
 }
 
