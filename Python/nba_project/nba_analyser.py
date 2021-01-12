@@ -18,4 +18,4 @@ while selection != 10:
         print("Invalid Input!")
         time.sleep(2)
     Introduction()
-    selection = int(input("Enter Here: "))
+    selection = int(input("\nEnter Here: "))
